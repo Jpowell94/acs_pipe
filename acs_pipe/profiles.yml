@@ -1,0 +1,7 @@
+acs_pipe:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'acs_pipe/talentpool.db'
+      threads: 11
