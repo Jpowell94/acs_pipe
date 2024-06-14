@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["jpowell94 <jessepowell.r4@gmail.com>"]
 readme = "README.md"
-packages = [{include = "acs_pipe"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,6 +12,7 @@ duckdb = "^1.0.0"
 prefect = "^2.19.4"
 prefect-dbt = "^0.5.0"
 soda-core-duckdb = "^3.3.5"
+sqlfluff = "^3.0.7"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.4.8"
