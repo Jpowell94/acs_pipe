@@ -1,10 +1,29 @@
-{{
-	config(
-		materialzed='incremental',
-	)
-	}}
-
-SELECT *
+SELECT
+	PERWT,
+  {% for i in range(1, 81) %}
+  REPWTP{{ i }},
+  {% endfor %}
+    PUMA,
+    OCC,
+    DEGFIELDD,
+    AGE,
+    VETDISAB,
+	DIFFREM,
+	DIFFPHYS,
+	DIFFMOB,
+	DIFFCARE,
+	DIFFSENS,
+	DIFFEYE,
+	DIFFHEAR,
+    EDUCD,
+    HISPAND,
+    RACED,
+    SEX,
+    VETSTAT,
+    STATEFIP,
+	INCWAGE,
+	LABFORCE,
+	CITIZEN
 FROM acs_2020
 WHERE AGE >= 17 AND LABFORCE == 2 AND CITIZEN <= 2
 

@@ -16,7 +16,7 @@ def load():
     conn.close()
 
 @task
-def transform():
+def Transform():
     DbtCoreOperation(
     commands=["pwd", "dbt debug", "dbt run"],
     project_dir="/home/jesserussellpowell/codeprojects/dataprojects/duckstuff/acs_pipe/acs_pipe/",
@@ -29,7 +29,7 @@ def transform():
 @flow()
 def main():
     load()
-    transform()
+    Transform()
 
 if __name__ == "__main__":
     main()

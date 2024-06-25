@@ -1,0 +1,14 @@
+WITH cte AS (
+    SELECT
+    {{ researchstation('STATEFIP') }} AS RESEARCHSTATION,
+      INCWAGE,
+      SUM(PERWT) OVER (PARTITION BY RESEARCHSTATION ORDER BY INCWAGE) AS cumulative_weight,
+      SUM(PERWT) OVER (PARTITION BY RESEARCHSTATION) AS total_weight
+    FROM {{ ref('workingpop') }}
+  )
+SELECT 
+RESEARCHSTATION,
+MIN(INCWAGE) AS MEDIAN_SALARY_RESEARCHSTATION
+FROM cte
+WHERE cumulative_weight >= total_weight / 2
+Group By RESEARCHSTATION
